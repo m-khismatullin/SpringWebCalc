@@ -13,7 +13,8 @@ public class CalcController {
                            Model model) {
 
         String calcResult, operation, operator;
-        int operandOne, operandTwo, result;
+        int operandOne, operandTwo;
+        double result;
 
         try {
             operation = request.getParameter("operation");
@@ -25,7 +26,7 @@ public class CalcController {
                 case ("m") : result = operandOne * operandTwo; operator = "*"; break;
                 case ("d") : {
                     if (operandTwo == 0) throw new IllegalArgumentException();
-                    result = operandOne / operandTwo;
+                    result = operandOne / (double) operandTwo;
                     operator = "/";
                     break;
                 }
